@@ -9,4 +9,4 @@ To install:
 
 3. Press and hold the reset button on your Planck for ~3 seconds.
 
-4. ``make KEYMAP=andykepmap dfu` should flash the keymap to your keyboard.
+4. `make KEYMAP=andykepmap dfu` should flash the keymap to your keyboard.
