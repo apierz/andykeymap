@@ -9,23 +9,56 @@
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
 
+
+enum {
+  TD_ESC_CAPS = 0,
+  TD_Q_SINGLE,
+  TD_W_DOUBLE,
+  TD_E_NDASH,
+  TD_R_UNDS,
+  TD_T_LEFTB,
+  TD_Y_RIGHTB,
+  TD_U_LEFTR,
+  TD_I_RIGHTR,
+  TD_O_BSLASH,
+  TD_P_PIPE,
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  //tap one for ESC, twice for caps lock
+   [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS)
+   ,[TD_Q_SINGLE] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_QUOT)
+   ,[TD_W_DOUBLE] = ACTION_TAP_DANCE_DOUBLE(KC_W, KC_DQUO)
+   ,[TD_E_NDASH] = ACTION_TAP_DANCE_DOUBLE(KC_E, KC_MINS)
+   ,[TD_R_UNDS] = ACTION_TAP_DANCE_DOUBLE(KC_R, KC_UNDS)
+   ,[TD_T_LEFTB] = ACTION_TAP_DANCE_DOUBLE(KC_T, KC_LBRC)
+   ,[TD_Y_RIGHTB] = ACTION_TAP_DANCE_DOUBLE(KC_Y, KC_RBRC)
+   ,[TD_U_LEFTR] = ACTION_TAP_DANCE_DOUBLE(KC_U, KC_LCBR)
+   ,[TD_I_RIGHTR] = ACTION_TAP_DANCE_DOUBLE(KC_I, KC_RCBR)
+   ,[TD_O_BSLASH] = ACTION_TAP_DANCE_DOUBLE(KC_O, KC_BSLS)
+   ,[TD_P_PIPE] = ACTION_TAP_DANCE_DOUBLE(KC_P, KC_PIPE)
+  
+};
+
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
  * | ESC  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Tab  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |Enter |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | DEL  | Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [0] = {
-  {KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
-  {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
-  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
+  {TD(TD_ESC_CAPS), TD(TD_Q_SINGLE), TD(TD_W_DOUBLE), TD(TD_E_NDASH), TD(TD_R_UNDS), TD(TD_T_LEFTB), TD(TD_Y_RIGHTB), TD(TD_U_LEFTR), TD(TD_I_RIGHTR), TD(TD_O_BSLASH), TD(TD_P_PIPE), KC_BSPC },
+  {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT },
+  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT },
   {KC_DEL, KC_LCTL, KC_LALT, KC_LGUI, M(1),    KC_SPC,  KC_SPC,   M(2),   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
