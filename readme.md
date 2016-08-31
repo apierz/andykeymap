@@ -1,32 +1,32 @@
 # Custom Keymap for My Planck Keyboard
 
-This is my custom keymap for my Planck rev4 keyboard. In most respects it is similar to the default layout, but it also takes advantage of some of the [QMK Firmware's](https://github.com/jackhumbert/qmk_firmware) more advanced features.
+This is my custom keymap for my Planck rev4 keyboard. It makes some signifigant changes to the default layout (mostly putting a numpad in the lower layer), but it also takes advantage of some of the [QMK Firmware's](https://github.com/jackhumbert/qmk_firmware) more advanced features.
 
-~~~~
-/* Qwerty
+~~~~ 
+ /* Qwerty
  * ,-----------------------------------------------------------------------------------.
  * | ESC  | Q / '| W / "| E / -| R / _| T / [| Y / ]| U / {| I / }| O / \| P / || Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Tb/Cl|   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |Enter |
+ * |Tb/Ctl|   A  |   S  |   D  | F / *|   G  |   H  | J / ~|   K  |   L  | ; / :|Enter |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | RS/ (|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |LS/ ) |
+ * | LS/ (|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |RS/ ) |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |DL/HYP| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
- 
- /* Lower
+
+/* Lower
  * ,-----------------------------------------------------------------------------------.
- * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Del  |
+ * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   7  |   8  |   9  |  /   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   _  |   +  |   {  |   }  |  |   |
+ * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   _  |   4  |   5  |   6  |  *   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |ISO | |      |      |Enter |
+ * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |   1  |   2  |   3  |  -   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Reset |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
+ * |Reset |      |      |      |      |             |      |   0  |   =  |   .  |  +   |
  * `-----------------------------------------------------------------------------------'
  */
-
+ 
 /* Raise
  * ,-----------------------------------------------------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
@@ -54,6 +54,10 @@ To install:
 
 4. `make KEYMAP=andykepmap dfu` should flash the keymap to your keyboard.
 
+## Numpad
+
+My `LOWER` key is set to toggle mode so pressing it once activates the Lower layer until it gets pressed again. This lets me use a modified numpad I have set up on the left side of the board
+
 ## Tap Dance
 
 Tap Dance is one of QMK's cool features. Press a key once and it behaves normally, press it twice in rapid succession and it does something different. 
@@ -70,6 +74,9 @@ I use it for delimiters and symbols with hard to remember locations on the keyma
 - i: }
 - o: \
 - p: |
+- ;: :
+- f: *
+- j: ~
 
 ## Space Cadet
 
