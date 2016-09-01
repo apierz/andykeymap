@@ -11,7 +11,8 @@
 
 
 enum {
-  TD_ESC_CAPS = 0,
+  TD_G_TILD = 0,
+  TD_ESC_CAPS,
   TD_Q_SINGLE,
   TD_W_DOUBLE,
   TD_E_NDASH,
@@ -24,13 +25,13 @@ enum {
   TD_P_PIPE,
   TD_COL_SEMI,
   TD_F_ASTR,
-  TD_G_TILD,
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
   //tap one for ESC, twice for caps lock
-   [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS)
-   ,[TD_G_TILD] = ACTION_TAP_DANCE_DOUBLE(KC_G, LSFT(KC_GRV))
+  
+   [TD_G_TILD] = ACTION_TAP_DANCE_DOUBLE(KC_G, KC_TILD)
+   ,[TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS)
    ,[TD_Q_SINGLE] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_QUOT)
    ,[TD_W_DOUBLE] = ACTION_TAP_DANCE_DOUBLE(KC_W, KC_DQUO)
    ,[TD_E_NDASH] = ACTION_TAP_DANCE_DOUBLE(KC_E, KC_MINS)
