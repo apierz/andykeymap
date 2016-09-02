@@ -62,7 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
-#define TAPPING_TERM 150
+#define TAPPING_TERM 175
 
 /*
  * Feature disable options

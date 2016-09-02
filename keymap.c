@@ -25,7 +25,22 @@ enum {
   TD_P_PIPE,
   TD_COL_SEMI,
   TD_F_ASTR,
+  TD_G_TAPDANCE,
 };
+
+void g_tilde(qk_tap_dance_state_t *state, void *user_data) {
+  switch (state->count) {
+  case 1:
+    register_code (KC_G);
+    unregister_code (KC_G);
+    break;
+  case 2:
+    register_code (KC_LSFT);
+    register_code (KC_TILD);
+    unregister_code (KC_TILD);
+    unregister_code (KC_LSFT);
+  }
+}
 
 qk_tap_dance_action_t tap_dance_actions[] = {
   //tap one for ESC, twice for caps lock
@@ -44,7 +59,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
    ,[TD_P_PIPE] = ACTION_TAP_DANCE_DOUBLE(KC_P, KC_PIPE)
    ,[TD_COL_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN)
    ,[TD_F_ASTR] = ACTION_TAP_DANCE_DOUBLE(KC_F, KC_PAST)
-  
+   ,[TD_G_TAPDANCE] = ACTION_TAP_DANCE_FN(g_tilde) 
 };
 
 
@@ -64,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [0] = {
   {TD(TD_ESC_CAPS), TD(TD_Q_SINGLE), TD(TD_W_DOUBLE), TD(TD_E_NDASH), TD(TD_R_UNDS), TD(TD_T_LEFTB), TD(TD_Y_RIGHTB), TD(TD_U_LEFTR), TD(TD_I_RIGHTR), TD(TD_O_BSLASH), TD(TD_P_PIPE), KC_BSPC },
-  {CTL_T(KC_TAB),  KC_A,    KC_S,    KC_D,  TD(TD_F_ASTR),   TD(TD_G_TILD),    KC_H , KC_J,    KC_K,    KC_L, TD(TD_COL_SEMI), KC_ENT },
+  {CTL_T(KC_TAB),  KC_A,    KC_S,    KC_D,  TD(TD_F_ASTR),   TD(TD_G_TAPDANCE),    KC_H , KC_J,    KC_K,    KC_L, TD(TD_COL_SEMI), KC_ENT },
   {KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC },
   {ALL_T(KC_DEL), KC_LCTL, KC_LALT, KC_LGUI, TG(1),    KC_SPC,  KC_SPC,   M(2),   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
@@ -111,6 +126,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM fn_actions[] = {
 
 };
+
+    
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
