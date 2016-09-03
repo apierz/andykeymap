@@ -3,15 +3,15 @@
 This is my custom keymap for my Planck rev4 keyboard. It makes some signifigant changes to the default layout (mostly putting a numpad in the lower layer), but it also takes advantage of some of the [QMK Firmware's](https://github.com/jackhumbert/qmk_firmware) more advanced features.
 
 ~~~~ 
- /* Qwerty
+/* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | ESC  | Q / '| W / "| E / -| R / _| T / [| Y / ]| U / {| I / }| O / \| P / || Bksp |
+ * | ESC  | Q / '| W / "| E / -| R / _| T / [| Y / ]| U / {| i/}/I| O / \| P / || Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |Tb/Ctl|   A  |   S  |   D  | F / *|   G  |   H  | J / ~|   K  |   L  | ; / :|Enter |
+ * |Tb/Ctl|   A  |   S  |   D  | F / *| G / ~|   H  |   J  |   K  |   L  | ; / :|Enter |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | LS/ (|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |RS/ ) |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |DL/HYP| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * |DL/HYP| Ctrl | Alt  | GUI  |Lower |    Space    | Lead | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 
@@ -62,7 +62,7 @@ My `LOWER` key is set to toggle mode so pressing it once activates the Lower lay
 
 Tap Dance is one of QMK's cool features. Press a key once and it behaves normally, press it twice in rapid succession and it does something different. 
 
-I use it for delimiters and symbols with hard to remember locations on the keymap. Press 'q' twice and I get a single quote. Press 'w' twice and I get a double quote, etc.
+I use it for delimiters and symbols with hard to remember locations on the keymap. Press 'q' twice and I get a single quote. Press 'w' twice and I get a double quote, etc. If I press I three times it will output a `I`.
 
 - q: '
 - w: "
@@ -71,7 +71,7 @@ I use it for delimiters and symbols with hard to remember locations on the keyma
 - t: [
 - y: ]
 - u: {
-- i: }
+- i: }, I
 - o: \
 - p: |
 - ;: :

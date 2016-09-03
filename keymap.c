@@ -19,7 +19,7 @@ enum {
   TD_T_LEFTB,
   TD_Y_RIGHTB,
   TD_U_LEFTR,
-  TD_I_RIGHTR,
+  TD_I_RIGHTR_I,
   TD_O_BSLASH,
   TD_P_PIPE,
   TD_COL_SEMI,
@@ -41,6 +41,28 @@ void g_tilde(qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
+void i_rightr_I(qk_tap_dance_state_t *state, void *user_data) {
+  switch (state->count) {
+  case 1:
+    register_code (KC_I);
+    unregister_code (KC_I);
+    break;
+  case 2:
+    register_code (KC_LSFT);
+    register_code (KC_RCBR);
+    unregister_code (KC_RBRC);
+    unregister_code (KC_RBRC);
+    break;
+  case 3:
+    register_code (KC_LSFT);
+    register_code (KC_I);
+    unregister_code (KC_I);
+    unregister_code (KC_LSFT);
+    break;
+  }
+}
+  
+
 qk_tap_dance_action_t tap_dance_actions[] = {
   //tap one for ESC, twice for caps lock
   
@@ -53,7 +75,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
    ,[TD_T_LEFTB] = ACTION_TAP_DANCE_DOUBLE(KC_T, KC_LBRC)
    ,[TD_Y_RIGHTB] = ACTION_TAP_DANCE_DOUBLE(KC_Y, KC_RBRC)
    ,[TD_U_LEFTR] = ACTION_TAP_DANCE_DOUBLE(KC_U, KC_LCBR)
-   ,[TD_I_RIGHTR] = ACTION_TAP_DANCE_DOUBLE(KC_I, KC_RCBR)
+   ,[TD_I_RIGHTR_I] = ACTION_TAP_DANCE_FN(i_rightr_i)
    ,[TD_O_BSLASH] = ACTION_TAP_DANCE_DOUBLE(KC_O, KC_BSLS)
    ,[TD_P_PIPE] = ACTION_TAP_DANCE_DOUBLE(KC_P, KC_PIPE)
    ,[TD_COL_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN)
@@ -67,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | ESC  | Q / '| W / "| E / -| R / _| T / [| Y / ]| U / {| I / }| O / \| P / || Bksp |
+ * | ESC  | Q / '| W / "| E / -| R / _| T / [| Y / ]| U / {| i/}/I| O / \| P / || Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |Tb/Ctl|   A  |   S  |   D  | F / *| G / ~|   H  |   J  |   K  |   L  | ; / :|Enter |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -77,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [0] = {
-  {TD(TD_ESC_CAPS), TD(TD_Q_SINGLE), TD(TD_W_DOUBLE), TD(TD_E_NDASH), TD(TD_R_UNDS), TD(TD_T_LEFTB), TD(TD_Y_RIGHTB), TD(TD_U_LEFTR), TD(TD_I_RIGHTR), TD(TD_O_BSLASH), TD(TD_P_PIPE), KC_BSPC },
+  {TD(TD_ESC_CAPS), TD(TD_Q_SINGLE), TD(TD_W_DOUBLE), TD(TD_E_NDASH), TD(TD_R_UNDS), TD(TD_T_LEFTB), TD(TD_Y_RIGHTB), TD(TD_U_LEFTR), TD(TD_I_RIGHTR_I), TD(TD_O_BSLASH), TD(TD_P_PIPE), KC_BSPC },
   {CTL_T(KC_TAB),  KC_A,    KC_S,    KC_D,  TD(TD_F_ASTR),   TD(TD_G_TAPDANCE),    KC_H , KC_J,    KC_K,    KC_L, TD(TD_COL_SEMI), KC_ENT },
   {KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC },
   {ALL_T(KC_DEL), KC_LCTL, KC_LALT, KC_LGUI, M(1),    KC_SPC,  KC_SPC,   M(2),   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
