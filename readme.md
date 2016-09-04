@@ -76,7 +76,7 @@ I use it for delimiters and symbols with hard to remember locations on the keyma
 - p: |
 - ;: :
 - f: *
-- j: ~
+- g: ~
 
 ## Space Cadet
 

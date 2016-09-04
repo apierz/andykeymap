@@ -75,7 +75,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
    ,[TD_T_LEFTB] = ACTION_TAP_DANCE_DOUBLE(KC_T, KC_LBRC)
    ,[TD_Y_RIGHTB] = ACTION_TAP_DANCE_DOUBLE(KC_Y, KC_RBRC)
    ,[TD_U_LEFTR] = ACTION_TAP_DANCE_DOUBLE(KC_U, KC_LCBR)
-   ,[TD_I_RIGHTR_I] = ACTION_TAP_DANCE_FN(i_rightr_i)
+   ,[TD_I_RIGHTR_I] = ACTION_TAP_DANCE_FN(i_rightr_I)
    ,[TD_O_BSLASH] = ACTION_TAP_DANCE_DOUBLE(KC_O, KC_BSLS)
    ,[TD_P_PIPE] = ACTION_TAP_DANCE_DOUBLE(KC_P, KC_PIPE)
    ,[TD_COL_SEMI] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN)
@@ -129,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   -  |   =  |   [  |   ]  |  \   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO # |ISO / |      |      |Enter |
+ * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO # | HOME | PGDN | PGUP |  END |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |Reset |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
  * `-----------------------------------------------------------------------------------'
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [2] = {
   {KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC},
   {KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS},
-  {_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, _______, _______, _______},
+  {_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_HOME, KC_PGDOWN, KC_PGUP, KC_END},
   {RESET,   _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY}
 },
 
